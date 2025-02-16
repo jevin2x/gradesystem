@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade System</title>
+</head>
+<body>
+    <h2>Grade System</h2>
+    <label>English: <input id="english" type="number"></label><br>
+    <label>Filipino: <input id="filipino" type="number"></label><br>
+    <label>Math: <input id="math" type="number"></label><br>
+    <label>Science: <input id="science" type="number"></label><br>
+    <label>Mapeh: <input id="mapeh" type="number"></label><br>
+    <h3>Average: <span id="average">0</span></h3>
+
+    <script>
+        function calculateAverage() {
+            const english = parseInt(document.getElementById("english").value) || 0;
+            const filipino = parseInt(document.getElementById("filipino").value) || 0;
+            const math = parseInt(document.getElementById("math").value) || 0;
+            const science = parseInt(document.getElementById("science").value) || 0;
+            const mapeh = parseInt(document.getElementById("mapeh").value) || 0;
+
+            const average = (english + filipino + math + science + mapeh) / 5;
+            document.getElementById("average").textContent = average.toFixed(2);
+        }
+
+        
+        const inputs = document.querySelectorAll('input[type="number"]');
+        inputs.forEach(input => input.addEventListener("input", calculateAverage));
+    </script>
+</body>
+</html>
